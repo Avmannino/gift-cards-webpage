@@ -50,37 +50,6 @@
 }
 
 /* =========================================
-   BRAND
-========================================= */
-
-.brand {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-
-  width: fit-content;
-  color: var(--primary);
-  line-height: 0.85;
-}
-
-.brand-wings {
-  font-family: var(--heading-font);
-  font-size: 40px;
-  font-weight: 900;
-  font-style: italic;
-  letter-spacing: -1px;
-}
-
-.brand-arena {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 7px;
-
-  padding-left: 7px;
-  margin-top: 7px;
-}
-
-/* =========================================
    HERO
 ========================================= */
 
@@ -169,8 +138,6 @@
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1.8px;
-
-  margin-bottom: 25px;
 }
 
 .launch-dot {
@@ -184,12 +151,13 @@
 }
 
 .hero h1 {
-  font-family: var(--heading-font);
-  font-size: clamp(76px, 8vw, 115px);
-  font-weight: 800;
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: clamp(66px, 7vw, 100px);
+  font-weight: 700;
 
-  line-height: 0.88;
-  letter-spacing: -1.5px;
+  line-height: 1;
+  letter-spacing: -0.5px;
+  text-transform: none;
 }
 
 .hero h1 span {
@@ -209,13 +177,6 @@
 
 .hero-button {
   min-width: 220px;
-}
-
-.hero-caption {
-  margin-top: 17px;
-
-  color: #9fa2ad;
-  font-size: 11px;
 }
 
 .scroll-indicator {
@@ -430,15 +391,10 @@
   aspect-ratio: 1;
 }
 
+/* Positions the "Now Available" badge below the card */
 .visual-caption {
   position: absolute;
   bottom: 0;
-
-  color: #a6a8b3;
-
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 2.5px;
 }
 
 /* =========================================
@@ -453,18 +409,6 @@
 .section-heading.centered {
   text-align: center;
   margin: 0 auto 48px;
-}
-
-.eyebrow {
-  display: inline-block;
-
-  color: var(--primary);
-
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 2px;
-
-  margin-bottom: 13px;
 }
 
 .section-heading h2 {
@@ -503,19 +447,25 @@
 .benefit-card {
   padding: 30px;
 
-  border: 1px solid var(--border);
+  border: 1px solid #e9a1b3;
   border-radius: 9px;
 
   background: white;
 
-  transition:
-    border-color 0.2s ease,
-    transform 0.2s ease;
+  transform: translateY(-3px);
+
+  /* Overshoot easing gives a slight bounce */
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .benefit-card:hover {
-  border-color: #e9a1b3;
-  transform: translateY(-3px);
+  transform: translateY(-9px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .benefit-card {
+    transition: none;
+  }
 }
 
 .benefit-icon {
@@ -567,11 +517,10 @@
 }
 
 .form-card,
-.summary-card,
-.help-card {
+.summary-card {
   background: white;
 
-  border: 1px solid var(--border);
+  border: 1px solid #c4c7ce;
   border-radius: 12px;
 }
 
@@ -768,10 +717,6 @@
   gap: 8px;
 }
 
-.last-section > .field + .field {
-  margin-top: 20px;
-}
-
 .field label {
   color: #34363d;
 
@@ -788,15 +733,7 @@
   color: var(--primary);
 }
 
-.optional {
-  color: #858891;
-
-  font-size: 10px;
-  font-weight: 400;
-}
-
-.field input,
-.field textarea {
+.field input {
   width: 100%;
   min-width: 0;
 
@@ -819,19 +756,11 @@
   min-height: 47px;
 }
 
-.field textarea {
-  resize: vertical;
-  min-height: 105px;
-  line-height: 1.6;
-}
-
-.field input::placeholder,
-.field textarea::placeholder {
+.field input::placeholder {
   color: #92959e;
 }
 
-.field input:focus,
-.field textarea:focus {
+.field input:focus {
   outline: none;
   border-color: var(--primary);
   box-shadow: 0 0 0 3px rgba(214, 4, 55, 0.08);
@@ -1041,41 +970,6 @@
   line-height: 1.75;
 }
 
-.help-card {
-  padding: 24px 27px;
-}
-
-.help-card h3 {
-  font-size: 15px;
-  font-weight: 700;
-
-  margin-bottom: 9px;
-}
-
-.help-card p {
-  color: var(--muted);
-
-  font-size: 12px;
-  line-height: 1.7;
-}
-
-.help-card a {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-
-  margin-top: 15px;
-
-  color: var(--primary);
-
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.help-card a:hover {
-  text-decoration: underline;
-}
-
 /* =========================================
    SUBMISSION STATUS
 ========================================= */
@@ -1129,64 +1023,6 @@
 }
 
 /* =========================================
-   FOOTER
-========================================= */
-
-.site-footer {
-  background: var(--dark);
-  color: white;
-
-  padding: 45px 0 22px;
-}
-
-.footer-main {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 25px;
-
-  padding-bottom: 28px;
-}
-
-.footer-brand {
-  color: white;
-}
-
-.footer-address {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-
-  color: #a9acb5;
-
-  margin-top: 21px;
-
-  font-size: 12px;
-}
-
-.footer-link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.footer-link:hover {
-  color: #ff648a;
-}
-
-.footer-bottom {
-  padding-top: 20px;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-
-  color: #858894;
-  font-size: 11px;
-}
-
-/* =========================================
    TABLET
 ========================================= */
 
@@ -1200,7 +1036,7 @@
   }
 
   .hero h1 {
-    font-size: clamp(65px, 9vw, 95px);
+    font-size: clamp(58px, 8vw, 84px);
   }
 
   .hero-visual {
@@ -1238,16 +1074,6 @@
     width: calc(100% - 40px);
   }
 
-  .brand-wings {
-    font-size: 33px;
-  }
-
-  .brand-arena {
-    font-size: 8px;
-    letter-spacing: 6px;
-    padding-left: 6px;
-  }
-
   .hero {
     padding: 55px 0 65px;
   }
@@ -1262,7 +1088,7 @@
   }
 
   .hero h1 {
-    font-size: clamp(70px, 13vw, 95px);
+    font-size: clamp(60px, 12vw, 84px);
   }
 
   .hero-content > p {
@@ -1272,26 +1098,14 @@
     line-height: 1.8;
   }
 
-  .launch-label {
-    margin-bottom: 22px;
-  }
-
-  .hero-caption {
-    font-size: 10px;
-  }
-
   .hero-visual {
     min-height: 0;
-    padding: 30px 0 48px;
+    padding: 30px 0 58px;
   }
 
   .gift-card-stack {
     width: 76%;
     max-width: 340px;
-  }
-
-  .visual-caption {
-    font-size: 9px;
   }
 
   .scroll-indicator {
@@ -1345,12 +1159,6 @@
   .form-card {
     padding: 23px;
   }
-
-  .footer-main {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
 }
 
 /* =========================================
@@ -1367,7 +1175,7 @@
   }
 
   .hero h1 {
-    font-size: 69px;
+    font-size: 58px;
   }
 
   .amount-grid {
@@ -1401,8 +1209,7 @@
     font-size: 22px;
   }
 
-  .field input,
-  .field textarea {
+  .field input {
     font-size: 16px;
   }
 }

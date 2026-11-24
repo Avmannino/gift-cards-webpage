@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   ArrowDown,
   ArrowRight,
-  ArrowUpRight,
   Gift,
   Wallet,
   ClipboardCheck,
@@ -10,7 +9,6 @@ import {
   AlertCircle,
   LoaderCircle,
   ShieldCheck,
-  MapPin,
 } from "lucide-react";
 
 import wingsLogo from "./assets/wings-logo.png";
@@ -160,14 +158,6 @@ function App() {
       "Gift Card Balance": formatCurrency(giftCardAmount),
       "Quantity": numericQuantity,
       "Total Requested Value": formatCurrency(totalAmount),
-
-      "Recipient Name":
-        String(formData.get("recipient_name") || "").trim() ||
-        "Not provided",
-
-      "Additional Notes":
-        String(formData.get("message") || "").trim() ||
-        "None",
     };
 
     try {
@@ -223,15 +213,10 @@ function App() {
 
           <div className="container hero-grid">
             <div className="hero-content">
-              <div className="launch-label">
-                <span className="launch-dot" />
-                NOW AVAILABLE
-              </div>
-
               <h1>
-                Give the
+                Wings Arena
                 <br />
-                Gift of <span>Ice.</span>
+                <span>Gift Cards</span>
               </h1>
 
               <p>
@@ -248,20 +233,22 @@ function App() {
                 Request a Gift Card
                 <ArrowRight size={20} />
               </a>
-
-              <div className="hero-caption">
-                Flexible amounts. Memorable experiences.
-              </div>
             </div>
 
-            <div
-              className="hero-visual"
-              aria-hidden="true"
-            >
-              <div className="card-decoration decoration-one" />
-              <div className="card-decoration decoration-two" />
+            <div className="hero-visual">
+              <div
+                className="card-decoration decoration-one"
+                aria-hidden="true"
+              />
+              <div
+                className="card-decoration decoration-two"
+                aria-hidden="true"
+              />
 
-              <div className="gift-card-stack">
+              <div
+                className="gift-card-stack"
+                aria-hidden="true"
+              >
                 <div className="gift-card-back">
                   <div className="magnetic-strip" />
 
@@ -285,8 +272,9 @@ function App() {
                 </div>
               </div>
 
-              <div className="visual-caption">
-                THE WINGS ARENA GIFT CARD
+              <div className="launch-label visual-caption">
+                <span className="launch-dot" />
+                NOW AVAILABLE
               </div>
             </div>
           </div>
@@ -308,10 +296,6 @@ function App() {
         >
           <div className="container">
             <div className="section-heading centered">
-              <span className="eyebrow">
-                WINGS ARENA GIFT CARDS
-              </span>
-
               <h2>A Gift for Every Occasion.</h2>
 
               <p>
@@ -352,10 +336,6 @@ function App() {
         >
           <div className="container">
             <div className="section-heading request-heading">
-              <span className="eyebrow">
-                GET YOUR GIFT CARD
-              </span>
-
               <h2>Make Someone's Day.</h2>
 
               <p>
@@ -508,7 +488,7 @@ function App() {
 
                     {/* STEP TWO */}
 
-                    <div className="form-section">
+                    <div className="form-section last-section">
                       <div className="form-section-heading">
                         <span className="step-number">
                           02
@@ -592,58 +572,6 @@ function App() {
                           />
                         </div>
                       </div>
-                    </div>
-
-                    {/* STEP THREE */}
-
-                    <div className="form-section last-section">
-                      <div className="form-section-heading">
-                        <span className="step-number">
-                          03
-                        </span>
-
-                        <div>
-                          <h3>Additional Details</h3>
-
-                          <p>
-                            Personalize your request.
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="field">
-                        <label htmlFor="recipient_name">
-                          Recipient's Name
-                          <span className="optional">
-                            Optional
-                          </span>
-                        </label>
-
-                        <input
-                          id="recipient_name"
-                          name="recipient_name"
-                          type="text"
-                          maxLength={150}
-                          placeholder="Who is the gift for?"
-                        />
-                      </div>
-
-                      <div className="field">
-                        <label htmlFor="message">
-                          Additional Notes
-                          <span className="optional">
-                            Optional
-                          </span>
-                        </label>
-
-                        <textarea
-                          id="message"
-                          name="message"
-                          rows={4}
-                          maxLength={1000}
-                          placeholder="Any special requests or additional information..."
-                        />
-                      </div>
 
                       {/* Honeypot spam protection */}
 
@@ -688,8 +616,6 @@ function App() {
                       No payment is collected through this
                       form. Our team will contact you to
                       arrange payment and fulfillment.
-                      Your information is submitted through
-                      Web3Forms for this purpose.
                     </p>
                   </div>
 
@@ -797,62 +723,11 @@ function App() {
                     </p>
                   </div>
                 </div>
-
-                <div className="help-card">
-                  <h3>Have a Question?</h3>
-
-                  <p>
-                    We're happy to help with your gift
-                    card purchase.
-                  </p>
-
-                  <a href="https://www.wingsarena.com/contact-us">
-                    Contact Wings Arena
-                    <ArrowUpRight size={17} />
-                  </a>
-                </div>
               </aside>
             </div>
           </div>
         </section>
       </main>
-
-      {/* FOOTER */}
-
-      <footer className="site-footer">
-        <div className="container">
-          <div className="footer-main">
-            <div>
-              <a
-                href="https://www.wingsarena.com/"
-                className="brand footer-brand"
-                aria-label="Wings Arena homepage"
-              >
-                <span className="brand-wings">WINGS</span>
-                <span className="brand-arena">ARENA</span>
-              </a>
-
-              <div className="footer-address">
-                <MapPin size={17} />
-                5 Barry Place, Stamford, CT 06902
-              </div>
-            </div>
-
-            <a
-              href="https://www.wingsarena.com/"
-              className="footer-link"
-            >
-              Visit WingsArena.com
-              <ArrowUpRight size={17} />
-            </a>
-          </div>
-
-          <div className="footer-bottom">
-            © {new Date().getFullYear()} Wings Arena.
-            All rights reserved.
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
